@@ -25,3 +25,5 @@ const Tutorial = sequelize.define("tutorial", {
     });
     return Tutorial;
   };
+
+  
