@@ -19,6 +19,12 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull:false,
       primaryKey: true
+    },
+    date: {
+      type: Sequelize.STRING,
+    },
+    count:{
+      type: Sequelize.INTEGER,
     }
   });
   return User;

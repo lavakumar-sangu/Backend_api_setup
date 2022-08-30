@@ -39,6 +39,7 @@ exports.findOne = (req,res) => {
     });
   });
 };
+
 exports.findAll = (req, res) => {
     User.findAll()
     .then(data => {
@@ -51,6 +52,30 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.UpdateUser = (req, res) => {
+    const username = req.query.username;
+    const date = req.body.name;
+    const count = req.body.email;
+    User.findOne({ where: { username: username } }).then(user => {
+        user.update({
+            email: email,
+            password: password
+        })
+        res.send("user successfully updated");
+        user.save();
+    }).catch(
+        err => {
+            res.send({
+                msg: "Something went worng...!"
+            })
+
+        }
+
+    );
+
+};
+
 exports.delete = (req, res) => {
   const id = req.query.id;
   User.destroy({
